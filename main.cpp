@@ -2,9 +2,7 @@
 
 #include <dnsServerService.hpp>
 #include <Server.hpp>
-#include <ServerWebService.hpp>
 #include <string.hpp>
-#include <UniquePtr.hpp>
 
 using namespace soup;
 
@@ -68,22 +66,6 @@ int main()
 	serv.bindUdp(addr, 53, &dns_srv);
 	std::cout << "Bound to UDP/" << addr.toString() << ":53" << std::endl;
 #endif
-
-	soup::ServerWebService web_srv{
-		[](soup::Socket& s, soup::HttpRequest&& req, soup::ServerWebService&)
-		{
-			soup::ServerWebService::disableKeepAlive(s);
-			soup::ServerWebService::sendText(s, ":)");
-		}
-	};
-	if (serv.bind(4269, &web_srv))
-	{
-		std::cout << "Bound to TCP/4269" << std::endl;
-	}
-	else
-	{
-		std::cout << "FAILED TO BIND TCP/4269" << std::endl;
-	}
 
 	serv.run();
 }

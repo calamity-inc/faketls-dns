@@ -12,7 +12,7 @@ int main()
 
 	dnsServerService dns_srv([](const std::string& name, const dnsName&, const SocketAddr&, dnsType) -> std::vector<SharedPtr<dnsRecord>>
 	{
-		std::cout << "Query for " << name << std::endl; // TODO: Remove me once networking is confirmed working on all nodes
+		//std::cout << "Query for " << name << std::endl;
 
 		std::vector<SharedPtr<dnsRecord>> res;
 		if (name == "faketls.com")

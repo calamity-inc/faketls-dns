@@ -4,6 +4,10 @@
 #include <Server.hpp>
 #include <string.hpp>
 
+#ifdef DOCKER
+#include <signal.h>
+#endif
+
 using namespace soup;
 
 int main()
@@ -65,6 +69,11 @@ int main()
 	addr.fromString("198.251.90.234");
 	serv.bindUdp(addr, 53, &dns_srv);
 	std::cout << "Bound to UDP/" << addr.toString() << ":53" << std::endl;
+#endif
+
+#ifdef DOCKER
+	// Ctrl+C not killing your software? According to the professional ChatGPTs hired by Docker Inc, it's not an issue. Why? Because there's a workaround!
+	signal(SIGTERM, [](int) { exit(0); });
 #endif
 
 	serv.run();

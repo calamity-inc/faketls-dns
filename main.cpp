@@ -27,6 +27,7 @@ int main()
 			res.emplace_back(soup::make_shared<dnsMxRecord>(name, 69420, 20, "mailsec.protonmail.ch"));
 		}
 		else if (name == "www.faketls.com" || name == "ns1.faketls.com" || name == "ns2.faketls.com"
+			|| name == "iptls.com" || name == "www.iptls.com" || name == "ns1.iptls.com" || name == "ns2.iptls.com"
 			|| name == "viatls.com" || name == "www.viatls.com" || name == "ns1.viatls.com" || name == "ns2.viatls.com"
 			|| name == "p2ptls.com" || name == "www.p2ptls.com" || name == "ns1.p2ptls.com" || name == "ns2.p2ptls.com"
 			)
@@ -41,6 +42,7 @@ int main()
 		{
 			std::string str = name;
 			string::replaceAll(str, ".faketls.com", "");
+			string::replaceAll(str, ".iptls.com", "");
 			string::replaceAll(str, ".viatls.com", "");
 			string::replaceAll(str, ".p2ptls.com", "");
 			string::replaceAll(str, "-", ".");

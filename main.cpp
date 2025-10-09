@@ -26,8 +26,8 @@ int main()
 			res.emplace_back(soup::make_shared<dnsMxRecord>(name, 69420, 10, "mail.protonmail.ch"));
 			res.emplace_back(soup::make_shared<dnsMxRecord>(name, 69420, 20, "mailsec.protonmail.ch"));
 		}
-		else if (name == "www.faketls.com" || name == "ns1.faketls.com" || name == "ns2.faketls.com"
-			|| name == "iptls.com" || name == "www.iptls.com" || name == "ns1.iptls.com" || name == "ns2.iptls.com"
+		else if (name == "www.faketls.com" || name == "ns1.faketls.com" || name == "ns2.faketls.com" || name == "my.faketls.com"
+			|| name == "iptls.com" || name == "www.iptls.com" || name == "ns1.iptls.com" || name == "ns2.iptls.com" || name == "my.iptls.com"
 			|| name == "viatls.com" || name == "www.viatls.com" || name == "ns1.viatls.com" || name == "ns2.viatls.com"
 			|| name == "p2ptls.com" || name == "www.p2ptls.com" || name == "ns1.p2ptls.com" || name == "ns2.p2ptls.com"
 			)
